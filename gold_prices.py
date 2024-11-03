@@ -3,7 +3,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-city = 'https://www.goodreturns.in/gold-rates/chandigarh.html'
+city = 'https://groww.in/gold-rates'
 response = requests.get(city)
 
 #print(response)
