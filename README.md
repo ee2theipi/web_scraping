@@ -17,6 +17,12 @@ It involves:
      - news.db
 
 Testing the Relation/impact of news on stock prices - (presentation) 
+Testing how news affect the stock price:
+ - Check for dates on which there is sudden rise/fall in stock price.
+ - scrape for news on adani or related industry (or any major global event) around that date.
+ - Observation:
+    - Positive news suggests a increase in price and negative news fall in price. 
+
 Note: All the files should be executed in the order they are mentioned.
 database file will be saved in default user directory (C:/users/admin/'database.db') maybe
 
