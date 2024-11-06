@@ -12,5 +12,5 @@ It involves:
      - stock_prices.db - database
      - 
 
-  3) News (War, election, ... any news):
+  3) **News (War, election, ... any news):**
      - 
