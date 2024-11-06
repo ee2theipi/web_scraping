@@ -10,8 +10,10 @@ It involves:
   2) **Stock Ref. files:** (website: https://www.equitypandit.com/historical-data/ADANIENT)
      - stock_prices.py - scrapes ADANI ENTERPRISES price data for the last 5 years
      - stock_prices.db - database
-     - regression files
+     - regression files (Interperting the data and trading strategy)
 
   3) **News (War, election, ... any news):**
      - newsapi_python.py
      - news.db
+
+Testing the Relation/impact of news on stock prices - (presentation) 
