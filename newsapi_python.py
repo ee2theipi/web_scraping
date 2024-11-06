@@ -7,15 +7,17 @@ import os
 # NewsAPI used as endpoint  
 url = ('https://newsapi.org/v2/everything?'
        'q=adani&'
-       'from=2024-11-01&'
-       'sortBy=popularity&'
+       'from_param=2023-10-05&'
+       'to=2042-11-04&'
+       'sortBy=relevancy&'
        'apiKey=eccf434a292f43bdb3d37f7d0d131a96')
 
 # A GET request to the API
 response = requests.get(url)
 rows_tbi = []
-#print(response.json())
 data = response.json()
+
+#print(data['articles'][0]['description'])
 print(f"Total news articles with the desired keyword: {data['totalResults']}")
 for article in data['articles']:
     #print(article['title'], article['publishedAt'])
@@ -41,8 +43,8 @@ table = '''CREATE TABLE IF NOT EXISTS News (
 conn.execute(table)
 conn.commit()
 
-for _, _, _, _ in rows_tbi:
+for publishedAt, title, description, url in rows_tbi:
     cursor.execute(
-            '''INSERT INTO News VALUES (?, ?, ?, ?)''', (_, _, _, _))
+            '''INSERT INTO News VALUES (?, ?, ?, ?)''', (publishedAt, title, description, url))
     conn.commit()
 conn.close()
