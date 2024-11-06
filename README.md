@@ -31,3 +31,6 @@ database file will be saved in default user directory (C:/users/admin/'database.
 - Linear regression (along with the news) helps us predict the stock price and pick a trading strategy based on the fact that the price movement will be about the best fit line.
 
 Part of interpretation and prediction involed in presentation.
+
+How does linear regerssion help?
+- One can expect
