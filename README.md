@@ -13,4 +13,4 @@ It involves:
      - 
 
   3) **News (War, election, ... any news):**
-     - 
+     - sdsffdg 
