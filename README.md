@@ -18,4 +18,4 @@ It involves:
 
 Testing the Relation/impact of news on stock prices - (presentation) 
 Note: All the files should be executed in the order they are mentioned.
-database file will be saved   
+database file will be saved in default user directory (C:/users/admin/'database.db') maybe
