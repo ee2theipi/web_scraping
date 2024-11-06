@@ -22,4 +22,6 @@ database file will be saved in default user directory (C:/users/admin/'database.
 
 **Conclusions for stock (ADANI Enterprise)**
 - Looking at the gaussian of the past 5 years it can be concluded that the stock is pretty volatile. Except for the year 2023-24 what it shows comparatively higher stability.
-- Linear regression (along with the news) helps us predict the stock price and pick a trading strategy based on the fact that the price movement will be about the best fit line. 
+- Linear regression (along with the news) helps us predict the stock price and pick a trading strategy based on the fact that the price movement will be about the best fit line.
+
+Part of interpretation and prediction involed in presentation.
