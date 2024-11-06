@@ -7,10 +7,11 @@ It involves:
      - gold_prices_plot.py
      - gold_prices_plot.png
       
-  2) **Stock Ref. files:** (website: 
+  2) **Stock Ref. files:** (website: https://www.equitypandit.com/historical-data/ADANIENT)
      - stock_prices.py - scrapes ADANI ENTERPRISES price data for the last 5 years
      - stock_prices.db - database
-     - 
+     - regression files
 
   3) **News (War, election, ... any news):**
-     - sdsffdg 
+     - newsapi_python.py
+     - news.db
