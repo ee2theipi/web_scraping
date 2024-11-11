@@ -1,4 +1,5 @@
 This project is done in partial fulfillment of the course credits IDC409 taken by Dr. Vishal Bharadwaj.  
+Disclaimer: Order of Execution is very important please adhere to it or you will get an error.
 It involves:
   1) **Gold: Ref. files:**
      - Gold_data_unfiltered.html - Contains the source code www.groww.in/gold-rates as on 5-11-24. Although we fetch it everytime.
