@@ -24,6 +24,11 @@ price_df = price_df.sort_values(by='Date')
 #print(price_df.dtypes)
 #print(price_df.head())
 
+# Plots only the last month's data
+last_month = price_df['Date'].max() - pd.DateOffset(months=1)
+price_df = price_df[price_df['Date'] >= last_month]
+
+
 news_query = "SELECT Published_on, Title, About FROM News"
 news_df = pd.read_sql(news_query, conn2)
 
@@ -43,6 +48,7 @@ price_df['sentiment'] = price_df['sentiment'].fillna(0)  # Fill NaNs with neutra
 price_df = price_df.drop(columns=['Published_on'])
 print(price_df['sentiment'][1200:])
 #print(price_df[['Date', 'Closing_Price', 'sentiment']].head())
+print(price_df['sentiment'].describe())
 
 # Define Custom Data Feed to include Sentiment
 class CustomPandasData(bt.feeds.PandasData):
@@ -51,7 +57,7 @@ class CustomPandasData(bt.feeds.PandasData):
 
 # Strategy
 class SentimentStrategy(bt.Strategy):
-    params = (('sentiment_threshold', 0.1),)
+    params = (('sentiment_threshold', 0.03),)
     def next(self):
         sentiment = self.data.sentiment[0]
         if sentiment > self.params.sentiment_threshold and not self.position:
