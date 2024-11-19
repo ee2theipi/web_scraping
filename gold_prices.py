@@ -6,7 +6,6 @@ from bs4 import BeautifulSoup
 #city = 'https://www.goodreturns.in/gold-rates/chandigarh.html'
 gold = 'https://groww.in/gold-rates'
 #response = requests.get(city)
-#print(response.status_code)
 
 response = requests.get(gold)
 #print(response.status_code)
@@ -16,15 +15,11 @@ rows_tbi = []
 #print(type(doc))
 #print(doc.prettify()) #data_file
 
-
-
 tables = doc.find_all('table', {'class': 'tb10Table'})
-#print(tables)
 
-# Initialize gold_table to None
 gold_table = None
 
-# Iterate over the tables to find the one with '24K PURE GOLD' in the header
+# find table '24K PURE GOLD' in the header
 for table in tables:
     header = table.find('thead')
     if header:
@@ -33,14 +28,12 @@ for table in tables:
             gold_table = table
             break
 
-# Check if the gold_table was found
 if gold_table:
-    # Extract the rows from the table
     rows = gold_table.find_all('tr')
 
-    # Print the last week's prices of 22k gold
+    # last week's prices of 22k gold
     print("24k Gold Prices in Delhi for the Last Week:")
-    for row in rows[1:14]:  # Skip the header row and get the next 7 rows
+    for row in rows[1:14]:  
         cols = row.find_all('td')
         if len(cols) >= 3:
             date_str = cols[0].text.strip()
