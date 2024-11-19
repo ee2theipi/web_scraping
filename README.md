@@ -16,6 +16,8 @@ It involves:
   3) **News (War, election, ... any news):**
      - newsapi_python.py
      - news.db
+  
+  4)**Backtesting**
 
 Testing the Relation/impact of news on stock prices - (presentation) 
 Testing how news affect the stock price:
