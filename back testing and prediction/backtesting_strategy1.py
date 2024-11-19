@@ -19,11 +19,8 @@ price_df['High'] = price_df['High'].replace('[\$,]', '', regex=True).astype(floa
 price_df['Low'] = price_df['Low'].replace('[\$,]', '', regex=True).astype(float)
 
 price_df = price_df.sort_values(by='Date')
-
-# Check the DataFrame to ensure the conversion was successful
 #print(price_df.dtypes)
 #print(price_df.head())
-
 
 class MovingAverageStrategy(bt.Strategy):
     params = (('short_period', 10),('long_period', 50),)
@@ -34,15 +31,13 @@ class MovingAverageStrategy(bt.Strategy):
         self.crossover = bt.indicators.CrossOver(self.short_ma, self.long_ma)
 
     def next(self):
-        # Buy if short MA crosses above long MA
+        # Buy if short_period crosses above long_period moving average
         if self.crossover > 0 and not self.position:
             self.buy()
-        # Sell if short MA crosses below long MA
         elif self.crossover < 0 and self.position:
             self.sell()
 
 
-# Parsing the data to backtrader
 price_df_parsed = bt.feeds.PandasData(dataname=price_df, datetime=0, open=2, high=5, low=6, close=1, volume=4, openinterest=None)
 
 cerebro = bt.Cerebro()
