@@ -10,7 +10,7 @@ price_df = pd.read_sql(query, conn)
 
 price_df['Date'] = pd.to_datetime(price_df['Date'])
 
-# Remove any non-numeric characters and convert columns to numeric types
+# bringing data in right format and type
 price_df['Closing_Price'] = price_df['Closing_Price'].replace('[\$,]', '', regex=True).astype(float)
 price_df['Opening_Price'] = price_df['Opening_Price'].replace('[\$,]', '', regex=True).astype(float)
 price_df['Percentage_Change'] = price_df['Percentage_Change'].replace('[\%,]', '', regex=True).astype(float)
@@ -19,8 +19,6 @@ price_df['High'] = price_df['High'].replace('[\$,]', '', regex=True).astype(floa
 price_df['Low'] = price_df['Low'].replace('[\$,]', '', regex=True).astype(float)
 
 price_df = price_df.sort_values(by='Date')
-
-# Check the DataFrame to ensure the conversion was successful
 #print(price_df.dtypes)
 #print(price_df.head())
 
@@ -28,17 +26,16 @@ price_df = price_df.sort_values(by='Date')
 last_month = price_df['Date'].max() - pd.DateOffset(months=1)
 price_df = price_df[price_df['Date'] >= last_month]
 
-
 news_query = "SELECT Published_on, Title, About FROM News"
 news_df = pd.read_sql(news_query, conn2)
 
 # Converting 'Published_on' to datetime format
 news_df['Published_on'] = pd.to_datetime(news_df['Published_on'])
 
-# Calculating Sentiment Scores for News Data
+# Sentiment Score calculation for  news
 news_df['sentiment'] = news_df['Title'].apply(lambda x: TextBlob(x).sentiment.polarity)
 
-# Aggregate sentiment scores by date
+# handles issue of there being more then 1 news on a particular day
 daily_sentiment = news_df.groupby('Published_on')['sentiment'].mean().reset_index()
 
 
